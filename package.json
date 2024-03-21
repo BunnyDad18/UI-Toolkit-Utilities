@@ -1,0 +1,21 @@
+{
+    "name": "com.bunnycodingdev.ui-toolkit-utilities",
+    "version": "0.0.1",
+    "displayName": "UI Toolkit Utilities",
+    "description": "This package contains utilities that help when developing with the UI Toolkit",
+    "unity": "2023.2",
+    "unityRelease": "5f1",
+    "documentationUrl": "https://example.com/",
+    "changelogUrl": "https://example.com/changelog.html",
+    "licensesUrl": "https://example.com/licensing.html",
+    "dependencies": {
+   },
+   "keywords": [
+      "UI Toolkit"
+    ],
+    "author": {
+      "name": "Bunny Coding Dev",
+      "email": "bunnycodingdev@gmail.com",
+      "url": ""
+    }
+}
