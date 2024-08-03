@@ -6,7 +6,7 @@ public class VisualElementSingleton<T> : VisualElement where T : VisualElement
 {
     private static T _instance;
 
-    protected static T Instance
+    public static T Instance
     {
         get
         {
