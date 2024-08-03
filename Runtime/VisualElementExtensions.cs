@@ -10,10 +10,11 @@ public static class VisualElementExtensions
         element.style.display = enabled ? DisplayStyle.Flex : DisplayStyle.None;
     }
     
-    public static void SetText(this Label label, string value)
+    public static Label SetText(this Label label, string value)
     {
         label.text = value;
         label.Display(value != string.Empty);
+        return label;
     }
 
     public static T Parent<T>(this T element, VisualElement parent) where T : VisualElement
