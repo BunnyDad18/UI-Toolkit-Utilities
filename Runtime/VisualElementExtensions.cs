@@ -9,7 +9,11 @@ public static class VisualElementExtensions
         if (element == null) return;
         element.style.display = enabled ? DisplayStyle.Flex : DisplayStyle.None;
     }
-    
+    public static bool Displayed(this VisualElement element)
+    {
+        return element.style.display == DisplayStyle.Flex;
+    }
+
     public static Label SetText(this Label label, string value)
     {
         label.text = value;
