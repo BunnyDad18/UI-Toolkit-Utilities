@@ -21,6 +21,12 @@ public static class VisualElementExtensions
         return label;
     }
 
+    public static Button SetText(this Button button, string value)
+    {
+        button.text = value;
+        return button;
+    }
+
     public static T Parent<T>(this T element, VisualElement parent) where T : VisualElement
     {
         parent.Add(element);
