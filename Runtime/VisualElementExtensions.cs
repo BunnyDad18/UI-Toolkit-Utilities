@@ -9,12 +9,13 @@ public static class VisualElementExtensions
         if (element == null) return;
         element.style.display = enabled ? DisplayStyle.Flex : DisplayStyle.None;
     }
+    
     public static bool Displayed(this VisualElement element)
     {
         return element.style.display == DisplayStyle.Flex;
     }
 
-    public static Label SetText(this Label label, string value)
+    public static T SetText<T>(this T label, string value) where T : TextElement
     {
         label.text = value;
         label.Display(value != string.Empty);
@@ -50,6 +51,12 @@ public static class VisualElementExtensions
     public static T Parent<T>(this T element, VisualElement parent) where T : VisualElement
     {
         parent.Add(element);
+        return element;
+    }
+
+    public static T SetName<T>(this T element, string name) where T : VisualElement
+    {
+        element.name = name;
         return element;
     }
 
