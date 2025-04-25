@@ -22,6 +22,18 @@ public static class VisualElementExtensions
         return label;
     }
 
+    public static ProgressBar SetText(this ProgressBar bar, string value)
+    {
+        bar.title = value;
+        return bar;
+    }
+
+    public static ProgressBar SetHigh(this ProgressBar bar, float value)
+    {
+        bar.highValue = value;
+        return bar;
+    }
+
     public static Button SetText(this Button button, string value)
     {
         button.text = value;
