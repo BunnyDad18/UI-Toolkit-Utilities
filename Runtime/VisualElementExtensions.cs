@@ -1,16 +1,16 @@
 using System;
-using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public static class VisualElementExtensions
 {
-    public static void Display(this VisualElement element, bool enabled)
+    public static T SetDisplay<T>(this T visualElement, bool display) where T : VisualElement
     {
-        if (element == null) return;
-        element.style.display = enabled ? DisplayStyle.Flex : DisplayStyle.None;
+        visualElement.style.display = display ? DisplayStyle.Flex : DisplayStyle.None;
+        return visualElement;
     }
     
-    public static bool Displayed(this VisualElement element)
+    public static bool GetDisplayed(this VisualElement element)
     {
         return element.style.display == DisplayStyle.Flex;
     }
@@ -18,7 +18,7 @@ public static class VisualElementExtensions
     public static T SetText<T>(this T label, string value) where T : TextElement
     {
         label.text = value;
-        label.Display(value != string.Empty);
+        label.SetDisplay(!string.IsNullOrEmpty(value));
         return label;
     }
 
@@ -60,7 +60,7 @@ public static class VisualElementExtensions
 		return toggle;
 	}
 
-    public static T Parent<T>(this T element, VisualElement parent) where T : VisualElement
+    public static T SetParent<T>(this T element, VisualElement parent) where T : VisualElement
     {
         parent.Add(element);
         return element;
@@ -72,7 +72,7 @@ public static class VisualElementExtensions
         return element;
     }
 
-    public static T AddToClassList<T>(this T element, params string[] classes) where T : VisualElement
+    public static T SetClasses<T>(this T element, params string[] classes) where T : VisualElement
     {
         foreach (string item in classes)
         {
@@ -94,5 +94,17 @@ public static class VisualElementExtensions
     {
         button.clicked += action;
         return button;
+    }
+
+    public static T SetPosition<T>(this T element, Vector3 position) where T : VisualElement
+    {
+        element.style.top = 1080-position.y;
+        element.style.left = position.x;
+        return element;
+    }
+
+    public static Vector2 GetPosition<T>(this T element) where T : VisualElement
+    {
+        return new Vector2(element.style.left.value.value, element.style.top.value.value);
     }
 }
