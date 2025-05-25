@@ -66,6 +66,12 @@ public static class VisualElementExtensions
         return element;
     }
 
+    public static T SetDataSource<T>(this T element, object dataSource) where T : VisualElement
+    {
+        element.dataSource = dataSource;
+        return element;
+    }
+
     public static T SetName<T>(this T element, string name) where T : VisualElement
     {
         element.name = name;
