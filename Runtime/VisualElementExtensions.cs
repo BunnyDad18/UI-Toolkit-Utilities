@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,52 +13,7 @@ public static class VisualElementExtensions
     {
         return element.style.display == DisplayStyle.Flex;
     }
-
-    public static T SetText<T>(this T label, string value) where T : TextElement
-    {
-        label.text = value;
-        label.SetDisplay(!string.IsNullOrEmpty(value));
-        return label;
-    }
-
-    public static ProgressBar SetText(this ProgressBar bar, string value)
-    {
-        bar.title = value;
-        return bar;
-    }
-
-    public static ProgressBar SetHigh(this ProgressBar bar, float value)
-    {
-        bar.highValue = value;
-        return bar;
-    }
-
-    public static Button SetText(this Button button, string value)
-    {
-        button.text = value;
-        return button;
-    }
-
-	public static Toggle SetAction(this Toggle toggle, Action<bool> action)
-	{
-		toggle.RegisterValueChangedCallback((value) => {
-			action?.Invoke(value.newValue);
-		});
-		return toggle;
-	}
-
-	public static Toggle SetValue(this Toggle toggle, bool value)
-	{
-		toggle.value = value;
-		return toggle;
-	}
-
-	public static Toggle SetText(this Toggle toggle, string value)
-	{
-		toggle.text = value;
-		return toggle;
-	}
-
+    
     public static T SetParent<T>(this T element, VisualElement parent) where T : VisualElement
     {
         parent.Add(element);
@@ -96,15 +50,9 @@ public static class VisualElementExtensions
         return element;
     }
 
-    public static Button SetAction(this Button button, Action action)
-    {
-        button.clicked += action;
-        return button;
-    }
-
     public static T SetPosition<T>(this T element, Vector3 position) where T : VisualElement
     {
-        element.style.top = 1080-position.y;
+        element.style.bottom = position.y;
         element.style.left = position.x;
         return element;
     }
