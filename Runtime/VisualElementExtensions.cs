@@ -1,3 +1,4 @@
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,6 +24,13 @@ public static class VisualElementExtensions
     public static T SetDataSource<T>(this T element, object dataSource) where T : VisualElement
     {
         element.dataSource = dataSource;
+        return element;
+    }
+
+    public static T SetDataBinding<T>(this T element, string bindingTarget, string bindingSource, BindingMode mode = BindingMode.TwoWay)
+        where T : VisualElement
+    {
+        element.SetBinding(bindingTarget, new DataBinding() { dataSourcePath = new PropertyPath(bindingSource), bindingMode = mode});
         return element;
     }
 

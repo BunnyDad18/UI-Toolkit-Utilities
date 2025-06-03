@@ -8,4 +8,10 @@ public static class TextElementExtensions
         label.SetDisplay(!string.IsNullOrEmpty(value));
         return label;
     }
+    
+    public static Label SetTextBinding(this Label label, string bindingPath)
+    {
+        label.SetDataBinding(nameof(Label.text), bindingPath);
+        return label;
+    }
 }
